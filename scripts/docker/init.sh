@@ -16,7 +16,7 @@ else
     echo '##vso[task.setvariable variable=DOCKER_TAG]'preview-${TIME_STAMP};
 fi
 
-echo '##vso[task.setvariable variable=REPOSITORY]##APLICATION_NAME##'
+echo '##vso[task.setvariable variable=REPOSITORY]##TAG_NAME##'
 
 echo -e "@stratsys:registry=https://www.myget.org/F/stratsys-feed/npm/" >> ./.npmrc
 echo -e "//www.myget.org/F/stratsys-feed/npm/:_authToken=${MYGET_API_KEY}" >> ./.npmrc
