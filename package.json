@@ -1,9 +1,9 @@
 {
   "version": "0.0.1",
-  "name": "temporary",
+  "name": "@stratsys/##TAG_NAME##",
   "description": "",
-  "main": "index.js",
-  "index": "index.js",
+  "main": "lib/##TAG_NAME##.js",
+  "index": "lib/##TAG_NAME##.js",
   "author": "Stratsys AB",
   "license": "UNLICENSED",
   "publishConfig": {
