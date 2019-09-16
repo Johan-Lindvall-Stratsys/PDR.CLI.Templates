@@ -1,12 +1,48 @@
 {
-  "name": "app",
-  "version": "0.0.1",
-  "author": "Stratsys AB",
-  "license": "UNLICENSED",
+  "name": "frontend",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "echo 'Run tests, exit successfully when tests pass...' && exit 1",
-    "build": "echo 'Build your application for production as to .lib/app.common.js...' && exit 1",
-    "serve": "echo 'Serve the application built for dev...' && exit 1"
-  }
+    "serve": "vue-cli-service serve --open",
+    "build": "vue-cli-service build --target lib --inline-vue ./src/app.ts --name app --formats commonjs",
+    "lint": "eslint --quiet --fix ./src/**/*.{js,jsx,ts,tsx,vue} ./tests/**/*.{js,jsx,ts,tsx}",
+    "test:unit": "vue-cli-service test:unit",
+    "vueCliSericeLint": "vue-cli-service lint",
+    "test": "yarn run test:unit"
+  },
+  "dependencies": {
+    "@stratsys/pdr": "^4.32.5",
+    "core-js": "^2.6.5",
+    "vue": "^2.6.10",
+    "vue-class-component": "^7.0.2",
+    "vue-property-decorator": "^8.1.0",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.1.4",
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-plugin-eslint": "^3.11.0",
+    "@vue/cli-plugin-typescript": "^3.11.0",
+    "@vue/cli-plugin-unit-jest": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "@vue/eslint-config-prettier": "^5.0.0",
+    "@vue/eslint-config-typescript": "^4.0.0",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "jest-junit": "6.4.0",
+    "less": "^3.0.4",
+    "less-loader": "^5.0.0",
+    "prettier": "^1.18.2",
+    "ts-jest": "^23.0.0",
+    "typescript": "^3.4.3",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "resolutions": {
+    "braces": "^2.3.1"
+  },
+  "license": "UNLICENSED"
 }

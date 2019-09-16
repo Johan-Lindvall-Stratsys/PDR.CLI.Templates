@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" class="sem">
+  <head>
+    <title>Development Server</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  </head>
+  <body>
+    <h1>If you change the input value the custom tag will also update</h1>
+    <input value="Hello There!" oninput="this.nextElementSibling.setAttribute('message', this.value)"/>
+    <##TAG_NAME## message="Hello There!"></##TAG_NAME##>
+  </body>
+</html>
