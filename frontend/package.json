@@ -1,0 +1,12 @@
+{
+  "name": "app",
+  "version": "0.0.1",
+  "author": "Stratsys AB",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "test": "echo 'Run tests, exit successfully when tests pass...' && exit 1",
+    "build": "echo 'Build your application for production as to .lib/app.common.js...' && exit 1",
+    "serve": "echo 'Serve the application built for dev...' && exit 1"
+  }
+}

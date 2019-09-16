@@ -1,0 +1,17 @@
+steps:
+  - template: ./build-steps.yml
+    parameters:
+      mygetApiKey: $(MYGET_READ_API_KEY)
+  - template: ./report-steps.yml
+variables:
+  - group: "MyGet"
+  - group: "Docker"
+trigger:
+  branches:
+    include:
+      - master
+pr:
+  branches:
+    include:
+      - master
+pool: "Hosted Ubuntu 1604"

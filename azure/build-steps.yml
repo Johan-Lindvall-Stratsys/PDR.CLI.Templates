@@ -1,0 +1,25 @@
+parameters:
+  mygetApiKey: ''
+  release: 'false'
+
+steps:
+  - bash: |
+      if [ -z "$MYGET_API_KEY" ]; then
+        echo "##vso[task.logissue type=error;]Missing template parameter \"mygetApiKey\""
+        echo "##vso[task.complete result=Failed;]"
+      fi
+    env:
+      MYGET_API_KEY: ${{ parameters.mygetApiKey }}
+  - script: bash ./scripts/docker/init.sh
+    displayName: "Setup Build Environment"
+    env:
+      MYGET_API_KEY: ${{ parameters.mygetApiKey }}
+      RELEASE: ${{ parameters.release }}
+  - script: bash ./scripts/docker/build.sh
+    displayName: "Build Frontend Artifact"
+  - script: bash ./scripts/docker/docker.sh
+    displayName: "Create Docker Image"
+    condition: "succeeded()"
+    env:
+      USERNAME: $(STRATSYS_CR_LOGIN_NAME)
+      PASSWORD: $(STRATSYS_CR_LOGIN_KEY)

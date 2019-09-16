@@ -1,0 +1,25 @@
+steps:
+  - checkout: self
+    persistCredentials: true
+  - template: ./build-steps.yml
+    parameters:
+      mygetApiKey: $(MYGET_WRITE_API_KEY)
+      release: "true"
+  - script: bash ./scripts/docker/publish.sh
+    displayName: "Publish NPM Package"
+    condition: "succeeded()"
+    env:
+        CURRENT_BRANCH: $(Build.SourceBranch)
+  - template: ./report-steps.yml
+variables:
+  - group: "MyGet"
+  - group: "Docker"
+trigger:
+  branches:
+    include:
+      - refs/tags/v*
+  tags:
+    include:
+      - v* #vX.Y.Z
+pr: none
+pool: "Hosted Ubuntu 1604"

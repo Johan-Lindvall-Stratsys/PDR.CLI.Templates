@@ -1,0 +1,55 @@
+{
+  "version": "0.0.1",
+  "name": "temporary",
+  "description": "",
+  "main": "index.js",
+  "index": "index.js",
+  "author": "Stratsys AB",
+  "license": "UNLICENSED",
+  "publishConfig": {
+    "registry": "https://www.myget.org/F/stratsys-feed/npm/"
+  },
+  "files": [
+    "lib/*"
+  ],
+  "scripts": {
+    "serve": "yarn azure:install && yarn frontend:run serve",
+    "test": "yarn azure:install && yarn frontend:run test",
+    "lint": "yarn azure:install && yarn frontend:run lint",
+    "build": "node ./scripts/build.js",
+    "release": "yarn version && git push origin --follow-tags",
+    "frontend:add": "yarn --cwd ./frontend add ",
+    "frontend:build": "yarn frontend:run build  && rollup --config ./rollup-lazy.config.js && node ./scripts/extract.js && rollup --config ./rollup-eager.config.js",
+    "frontend:run": "yarn --cwd ./frontend run ",
+    "frontend:install": "yarn --cwd ./frontend install ",
+    "server:install": "yarn --cwd ./server install",
+    "server:run": "yarn --cwd ./server run",
+    "server:start": "yarn server:run start",
+    "server:build": "yarn server:run build",
+    "azure:audit": "yarn audit && yarn --cwd ./frontend/ audit && yarn --cwd ./server/ audit",
+    "azure:build": "yarn azure:audit && yarn frontend:build && yarn pack --filename ./artifact.tgz  && yarn server:build",
+    "azure:publish": "npm publish ./artifact.tgz && rimraf ./artifact.tgz",
+    "azure:install": "yarn install && yarn frontend:install && yarn server:install",
+    "azure:test": "yarn frontend:run test --ci --coverage"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.4.4",
+    "@babel/core": "7.4.5",
+    "@babel/plugin-proposal-class-properties": "7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "7.4.4",
+    "@babel/plugin-syntax-dynamic-import": "7.2.0",
+    "@babel/preset-env": "7.4.5",
+    "@babel/preset-typescript": "7.3.3",
+    "fs-extra": "8.0.1",
+    "jest": "24.8.0",
+    "rimraf": "2.6.3",
+    "rollup": "1.15.6",
+    "rollup-plugin-babel": "4.3.2",
+    "rollup-plugin-commonjs": "10.0.0",
+    "rollup-plugin-typescript": "1.0.1",
+    "rollup-plugin-replace": "2.2.0",
+    "tslib": "1.10.0",
+    "typescript": "3.5.2",
+    "webpack": "4.35.0"
+  }
+}
