@@ -6,8 +6,8 @@
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build --target lib --inline-vue ./src/app.ts --name app --formats commonjs",
     "lint": "eslint --quiet --fix ./src/**/*.{js,jsx,ts,tsx,vue} ./tests/**/*.{js,jsx,ts,tsx}",
+    "lint:cli-service": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "vueCliSericeLint": "vue-cli-service lint",
     "test": "yarn run test:unit"
   },
   "dependencies": {
