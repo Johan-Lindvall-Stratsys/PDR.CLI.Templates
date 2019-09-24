@@ -11,7 +11,7 @@
         "jest.config.js"
       ],
       "cwd": "${workspaceFolder}/frontend/",
-      "console": "integratedTerminal",
+      "console": "internalConsole",
       "internalConsoleOptions": "neverOpen",
       "disableOptimisticBPs": true,
       "windows": {
@@ -29,7 +29,7 @@
         "jest.config.js"
       ],
       "cwd": "${workspaceFolder}/frontend/",
-      "console": "integratedTerminal",
+      "console": "internalConsole",
       "internalConsoleOptions": "neverOpen",
       "disableOptimisticBPs": true,
       "windows": {
