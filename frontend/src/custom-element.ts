@@ -82,5 +82,5 @@ function onAttributeChange(
   }
 }
 
-window['##ELEMENT_CLASS##'] = customElement
+window['##TAG_CLASS##'] = customElement
 export default customElement
