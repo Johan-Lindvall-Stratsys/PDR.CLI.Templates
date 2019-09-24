@@ -53,7 +53,6 @@ module.exports = {
     'scanjs-rules/assign_to_search' : 'error',
     'scanjs-rules/assign_to_src' : 'error',
     'scanjs-rules/call_Function' : 'error',
-    'scanjs-rules/call_addEventListener_deviceproximity' : 'error',
     'scanjs-rules/call_addEventListener_message' : 'error',
     'scanjs-rules/call_connect' : 'error',
     'scanjs-rules/call_eval' : 'error',
