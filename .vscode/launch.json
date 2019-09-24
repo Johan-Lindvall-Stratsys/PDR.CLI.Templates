@@ -5,35 +5,33 @@
       "type": "node",
       "request": "launch",
       "name": "Debug Jest - All Tests",
-      "program": "${workspaceFolder}/frontend/node_modules/.bin/jest",
+      "program": "${workspaceFolder}/frontend/node_modules/.bin/vue-cli-service",
       "args": [
-        "--config",
-        "jest.config.js"
+        "test:unit"
       ],
       "cwd": "${workspaceFolder}/frontend/",
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
       "disableOptimisticBPs": true,
       "windows": {
-        "program": "${workspaceFolder}/frontend/node_modules/jest/bin/jest",
+        "program": "${workspaceFolder}/frontend/node_modules/@vue/cli-service/bin/vue-cli-service.js",
       }
     },
     {
       "type": "node",
       "request": "launch",
       "name": "Debug Jest - Current File",
-      "program": "${workspaceFolder}/frontend/node_modules/.bin/jest",
+      "program": "${workspaceFolder}/frontend/node_modules/.bin/vue-cli-service",
       "args": [
-        "${fileBasenameNoExtension}",
-        "--config",
-        "jest.config.js"
+        "test:unit",
+        "${fileBasenameNoExtension}"
       ],
       "cwd": "${workspaceFolder}/frontend/",
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
       "disableOptimisticBPs": true,
       "windows": {
-        "program": "${workspaceFolder}/frontend/node_modules/jest/bin/jest",
+        "program": "${workspaceFolder}/frontend/node_modules/@vue/cli-service/bin/vue-cli-service.js",
       }
     },
     {
