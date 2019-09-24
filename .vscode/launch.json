@@ -10,7 +10,7 @@
         "test:unit"
       ],
       "cwd": "${workspaceFolder}/frontend/",
-      "console": "integratedTerminal",
+      "console": "internalConsole",
       "internalConsoleOptions": "neverOpen",
       "disableOptimisticBPs": true,
       "windows": {
@@ -27,7 +27,7 @@
         "${fileBasenameNoExtension}"
       ],
       "cwd": "${workspaceFolder}/frontend/",
-      "console": "integratedTerminal",
+      "console": "internalConsole",
       "internalConsoleOptions": "neverOpen",
       "disableOptimisticBPs": true,
       "windows": {
