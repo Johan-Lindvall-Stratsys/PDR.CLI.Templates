@@ -4,7 +4,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Jest All",
+      "name": "Debug Jest - All Tests",
       "program": "${workspaceFolder}/frontend/node_modules/.bin/jest",
       "args": [
         "--config",
@@ -21,7 +21,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Jest Current File",
+      "name": "Debug Jest - Current File",
       "program": "${workspaceFolder}/frontend/node_modules/.bin/jest",
       "args": [
         "${fileBasenameNoExtension}",
@@ -35,6 +35,13 @@
       "windows": {
         "program": "${workspaceFolder}/frontend/node_modules/jest/bin/jest",
       }
+    },
+    {
+        "type": "chrome",
+        "request": "launch",
+        "name": "Debug Chrome - Launch Frontend Localhost",
+        "url": "http://localhost:8080",
+        "webRoot": "${workspaceFolder}/frontend"
     }
   ]
 }
