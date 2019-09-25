@@ -5,6 +5,12 @@ steps:
     parameters:
       mygetApiKey: $(MYGET_WRITE_API_KEY)
       release: "true"
+  - script: bash ./scripts/docker/docker.sh
+    displayName: "Create Docker Image"
+    condition: "succeeded()"
+    env:
+      USERNAME: $(STRATSYS_CR_LOGIN_NAME)
+      PASSWORD: $(STRATSYS_CR_LOGIN_KEY)
   - script: bash ./scripts/docker/publish.sh
     displayName: "Publish NPM Package"
     condition: "succeeded()"
