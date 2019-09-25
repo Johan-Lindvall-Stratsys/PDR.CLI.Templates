@@ -3,12 +3,15 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'production',
-  entry: '../lib/##TAG_NAME##.js',
+  entry: {
+    app: '../lib/##TAG_NAME##.js',
+    pdr: '../frontend/node_modules/@stratsys/pdr/full-runtime'
+  },
   output: {
     path: path.join(__dirname, '/dist'),
     publicPath: '__DOCKER_IMAGE_URL__/static/',
-    filename: 'app.js',
-    chunkFilename: '[name].application-chunk.[hash].js',
+    filename: '[name].js',
+    chunkFilename: 'chunk.[id].js',
     library: '##LIBRARY_NAME##'
   },
   plugins: [new CleanWebpackPlugin()],
@@ -22,6 +25,20 @@ module.exports = {
           presets: ['@babel/preset-env'],
           plugins: ['@babel/plugin-syntax-dynamic-import']
         }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
       }
     ]
   },

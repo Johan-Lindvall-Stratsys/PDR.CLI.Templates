@@ -13,15 +13,22 @@ app.use(function(req, res, next) {
 })
 
 app.use('/static', express.static('./dist'))
+app.use('/preview', express.static(path.join(__dirname, 'preview.html')))
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './dist/app.js'))
 })
 
 app.listen(PORT, HOST, () => {
-  const appFilePath = path.join(process.cwd(), 'dist/app.js')
-  let appFile = fs.readFileSync(appFilePath, 'utf8')
-  appFile = appFile.replace(/__DOCKER_IMAGE_URL__/g, process.env.URL)
-  fs.writeFileSync(appFilePath, appFile, 'utf8')
+  const entries = [
+    path.join(process.cwd(), 'dist/app.js'),
+    path.join(process.cwd(), 'dist/pdr.js')
+  ]
+
+  entries.forEach(p => {
+    let entry = fs.readFileSync(p, 'utf8')
+    entry = entry.replace(/__DOCKER_IMAGE_URL__/g, process.env.URL)
+    fs.writeFileSync(p, entry, 'utf8')
+  })
 })
 console.log(`Running on http://${HOST}:${PORT}`)
