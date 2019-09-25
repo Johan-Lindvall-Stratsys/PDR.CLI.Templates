@@ -7,8 +7,7 @@ module.exports = {
   },
   plugins: [
     'scanjs-rules',
-    'no-unsanitized',
-    'no-wildcard-postmessage'
+    'no-unsanitized'
   ],
   extends: ['plugin:vue/essential', '@vue/prettier', '@vue/typescript'],
   rules: {
@@ -59,7 +58,6 @@ module.exports = {
     'scanjs-rules/property_mgmt' : 'error',
     'no-unsanitized/method': 'error',
     'no-unsanitized/property': 'error',
-    'no-wildcard-postmessage/no-wildcard-postmessage': 'error'
   },
   parserOptions: {
     parser: '@typescript-eslint/parser'
