@@ -30,7 +30,7 @@ const customElement = document.registerElement('##TAG_NAME##', {
       }
     }
     // You can add your own methods and properties here.
-    // They are available on an instance of ##ELEMENT_CLASS##
+    // They are available on an instance of ##TAG_CLASS##
   })
 })
 
