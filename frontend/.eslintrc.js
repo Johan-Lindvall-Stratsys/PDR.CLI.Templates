@@ -22,7 +22,6 @@ module.exports = {
     '@typescript-eslint',
     'scanjs-rules',
     'no-unsanitized',
-    'no-wildcard-postmessage'
   ],
   rules: {
     'prettier/prettier': [
@@ -71,6 +70,5 @@ module.exports = {
     'scanjs-rules/property_mgmt' : 'error',
     'no-unsanitized/method': 'error',
     'no-unsanitized/property': 'error',
-    'no-wildcard-postmessage/no-wildcard-postmessage': 'error'
   }
 }
