@@ -9,7 +9,6 @@ module.exports = merge(common, {
   entry: './src/app.ts',
   output: {
     filename: 'app.common.js',
-    library: 'app',
     libraryTarget: 'commonjs',
     path: path.join(__dirname, '/lib')
   },
