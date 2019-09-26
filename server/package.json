@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "cross-env-shell URL=$APPLICATION_URL node ./index.js",
+    "dev": "node ./index.js",
+    "start": "URL=$APPLICATION_URL node ./index.js",
     "build": "webpack --config ./webpack.config.js"
   },
   "dependencies": {
@@ -19,8 +20,7 @@
     "@babel/cli": "7.4.4",
     "@babel/core": "7.4.5",
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
-    "@babel/preset-env": "7.4.5",
-    "cross-env": "5.2.0"
+    "@babel/preset-env": "7.4.5"
   },
   "license": "UNLICENSED"
 }
