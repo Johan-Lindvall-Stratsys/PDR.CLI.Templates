@@ -1,10 +1,10 @@
-FROM node:10.16.0-jessie
-
+FROM node:10.16.0-alpine as build
 WORKDIR /usr/src/app
+COPY server/. .
+RUN yarn install --production
 
-COPY server/* ./
-COPY server/dist ./dist
-RUN yarn install
-
+FROM node:10.16.0-alpine as release
+WORKDIR /usr/src/app
+COPY --from=build /usr/src/app/. .
 EXPOSE 8080
 CMD yarn run start

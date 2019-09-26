@@ -12,8 +12,9 @@ app.use(function(req, res, next) {
   next()
 })
 
-app.use('/static', express.static('./dist'))
-app.use('/preview', express.static(path.join(__dirname, 'preview.html')))
+app.use('/dist', express.static('./dist'))
+app.use('/static', express.static('./static'))
+app.use('/preview', express.static(path.join(__dirname, './static/preview.html')))
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './dist/app.js'))
