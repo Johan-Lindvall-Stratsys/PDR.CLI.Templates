@@ -9,7 +9,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, '/dist'),
-    publicPath: '__DOCKER_IMAGE_URL__/static/',
+    publicPath: '__DOCKER_IMAGE_URL__/dist/',
     filename: '[name].js',
     chunkFilename: 'chunk.[id].js',
     library: '##LIBRARY_NAME##'
