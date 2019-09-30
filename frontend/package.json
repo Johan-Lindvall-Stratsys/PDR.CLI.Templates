@@ -44,7 +44,9 @@
     "vue-template-compiler": "^2.6.10"
   },
   "resolutions": {
-    "braces": "^2.3.1"
+    "braces": "^2.3.1",
+    "handlebars": "^4.3.0",
+    "eslint-utils": "^1.4.1"
   },
   "license": "UNLICENSED"
 }
