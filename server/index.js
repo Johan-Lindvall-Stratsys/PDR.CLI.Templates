@@ -1,4 +1,7 @@
 const express = require('express')
+const mustache = require('mustache-express')
+const favicon = require('express-favicon')
+
 const path = require('path')
 const fs = require('fs')
 
@@ -6,6 +9,13 @@ const PORT = 8080
 const HOST = '0.0.0.0'
 
 const app = express()
+
+app.use(favicon(path.join(__dirname, 'favicon.ico')))
+
+app.engine('html', mustache())
+app.set('views', path.join(__dirname, 'static/'))
+app.set('view engine', 'html')
+
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
@@ -14,7 +24,17 @@ app.use(function(req, res, next) {
 
 app.use('/dist', express.static('./dist'))
 app.use('/static', express.static('./static'))
-app.use('/preview', express.static(path.join(__dirname, './static/preview.html')))
+
+
+app.get('/preview', async (req, res, next) => {
+  try {
+    res.render('preview', {
+      someData: 'Preview Data'
+    })
+  } catch (ex) {
+    next(ex)
+  }
+})
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './dist/app.js'))
