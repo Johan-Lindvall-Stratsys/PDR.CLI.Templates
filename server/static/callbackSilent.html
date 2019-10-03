@@ -5,8 +5,7 @@
   </head>
   <body>
     <script>
-    new Oidc.UserManager({ userStore: new Oidc.WebStorageStateStore({ store: sessionStorage }) })
-      .signinSilentCallback()
+      new Oidc.UserManager().signinSilentCallback()
     </script>
   </body>
 
