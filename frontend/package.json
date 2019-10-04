@@ -5,9 +5,12 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "test": "jest ./tests/unit/",
+    "test": "yarn test:unit",
+    "test:unit": "jest ./tests/unit/",
+    "test:regression": "echo 'No regression test support yet...' &&  exit 0",
     "build": "webpack --config webpack.prod.js",
-    "serve": "webpack-dev-server --open --config webpack.dev.js",
+    "serve:development": "webpack-dev-server --open --config webpack.dev.js",
+    "serve:regression": "echo 'No regression test support yet...' &&  exit 0",
     "lint": "eslint --quiet --fix ./src/**/*.{js,jsx,ts,tsx,vue} ./tests/**/*.{js,jsx,ts,tsx}"
   },
   "dependencies": {
