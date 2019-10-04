@@ -1,4 +1,4 @@
-const puppeteer = 'puppeteer'
+const puppeteer = require('puppeteer')
 
 describe('test test', () => {
   let browser

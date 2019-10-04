@@ -8,7 +8,7 @@
     "build": "vue-cli-service build --target lib --inline-vue ./src/app.ts --name app --formats commonjs",
     "lint": "eslint --quiet --fix ./src/**/*.{js,jsx,ts,tsx,vue} ./tests/**/*.{js,jsx,ts,tsx}",
     "lint:cli-service": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit --passWithNoTests component/",
+    "test:unit": "vue-cli-service test:unit --passWithNoTests unit/",
     "test:component": "vue-cli-service test:unit --passWithNoTests component/",
     "test:regression": "vue-cli-service test:unit --passWithNoTests regression/",
     "test": "yarn test:unit && yarn test:component"

@@ -29,7 +29,6 @@ module.exports = {
       .rule('svg')
       .use('url-loader')
       .loader('url-loader')
-    }
   },
   configureWebpack: config => {
     // We can safely ignore this since we lazy-load the application already
