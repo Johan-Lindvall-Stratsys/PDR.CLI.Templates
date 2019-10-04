@@ -3,12 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --open",
+    "serve:development": "vue-cli-service serve ./hosts/development.ts --open",
+    "serve:regression": "vue-cli-service serve --mode production ./hosts/regression.ts",
     "build": "vue-cli-service build --target lib --inline-vue ./src/app.ts --name app --formats commonjs",
     "lint": "eslint --quiet --fix ./src/**/*.{js,jsx,ts,tsx,vue} ./tests/**/*.{js,jsx,ts,tsx}",
     "lint:cli-service": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit",
-    "test": "yarn run test:unit"
+    "test:unit": "vue-cli-service test:unit --passWithNoTests component/",
+    "test:component": "vue-cli-service test:unit --passWithNoTests component/",
+    "test:regression": "vue-cli-service test:unit --passWithNoTests regression/",
+    "test": "yarn test:unit && yarn test:component"
   },
   "dependencies": {
     "@stratsys/pdr": "^4.33.0",
@@ -39,6 +42,7 @@
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     "prettier": "^1.18.2",
+    "puppeteer": "1.19.0",
     "ts-jest": "^23.0.0",
     "typescript": "^3.4.3",
     "vue-template-compiler": "^2.6.10"

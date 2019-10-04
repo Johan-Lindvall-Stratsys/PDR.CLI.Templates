@@ -29,12 +29,6 @@ module.exports = {
       .rule('svg')
       .use('url-loader')
       .loader('url-loader')
-
-    if (process.env.NODE_ENV === 'development') {
-      config
-        .entry('app')
-        .clear()
-        .add('./host.ts')
     }
   },
   configureWebpack: config => {
@@ -49,11 +43,7 @@ module.exports = {
       })
     )
 
-    if (process.env.NODE_ENV === 'development') {
-      config.devtool = 'source-map'
-    }
-
-    if (process.env.NODE_ENV === 'production') {
+    if (config.output.libraryTarget) {
       if (config.externals && config.externals.vue) {
         // Vue should always be bundled, this should be handled by the --include-vue flag, if by any chance it comes here. Remove it.
         delete config.externals.vue
