@@ -13,7 +13,8 @@
     "lib/*"
   ],
   "scripts": {
-    "serve": "yarn azure:install && yarn frontend:run serve",
+    "serve": "yarn azure:install && yarn frontend:run serve:development",
+    "regression": "concurrently --kill-others --raw --success first \"yarn frontend:run serve:regression\" \"wait-on http://localhost:8080 && yarn frontend:run test:regression\"",
     "test": "yarn azure:install && yarn frontend:run test",
     "lint": "yarn azure:install && yarn frontend:run lint",
     "build": "node ./scripts/build.js && yarn azure:install && yarn azure:build",
@@ -31,9 +32,12 @@
     "azure:build": "yarn azure:audit && yarn frontend:build && yarn pack --filename ./artifact.tgz  && yarn server:build",
     "azure:install": "yarn install && yarn frontend:install && yarn server:install",
     "azure:publish": "npm publish ./artifact.tgz && rimraf ./artifact.tgz",
-    "azure:test": "yarn frontend:run test --ci --coverage"
+    "azure:test": "yarn frontend:run test --ci --coverage",
+    "azure:regression": "yarn frontend:run test:regression"
   },
   "devDependencies": {
+    "concurrently": "4.1.1",
+    "wait-on": "3.3.0",
     "@babel/cli": "7.4.4",
     "@babel/core": "7.4.5",
     "@babel/plugin-proposal-class-properties": "7.4.4",

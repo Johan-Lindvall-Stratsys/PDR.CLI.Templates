@@ -17,3 +17,5 @@ steps:
       RELEASE: ${{ parameters.release }}
   - script: bash ./scripts/docker/build.sh
     displayName: "Build Frontend Artifact"
+  - script: bash ./scripts/docker/regression.sh
+    displayName: "Running Regression Tests"
