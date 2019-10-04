@@ -4,7 +4,7 @@ console.log('There is no guarantee that the build will work on Azure if it works
 console.log('')
 console.log('Some things that are probably different with the remote build:')
 console.log('')
-console.log('\t-> It is run on Linux docker image.')
+console.log('\t-> It is run in a Linux docker image.')
 console.log('\t-> It has no Yarn cache.')
 console.log('\t-> It has MyGet credentials stored that are not yours.')
 console.log('\t-> It also runs the unit tests.')
