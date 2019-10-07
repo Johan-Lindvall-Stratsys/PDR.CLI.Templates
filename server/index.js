@@ -48,7 +48,7 @@ app.listen(PORT, HOST, () => {
 
   entries.forEach(p => {
     let entry = fs.readFileSync(p, 'utf8')
-    entry = entry.replace(/__DOCKER_IMAGE_URL__/g, process.env.URL)
+    entry = entry.replace(/__DOCKER_IMAGE_URL__/g, process.env.URL || '.')
     fs.writeFileSync(p, entry, 'utf8')
   })
 })
