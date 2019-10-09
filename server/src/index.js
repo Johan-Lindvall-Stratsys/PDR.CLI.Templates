@@ -8,12 +8,13 @@ const fs = require('fs')
 const PORT = 8080
 const HOST = '0.0.0.0'
 
+const cwd = process.cwd()
 const app = express()
 
-app.use(favicon(path.join(__dirname, 'favicon.ico')))
+app.use(favicon(path.join(cwd, 'favicon.ico')))
 
 app.engine('html', mustache())
-app.set('views', path.join(__dirname, 'static/'))
+app.set('views', path.join(cwd, 'static/'))
 app.set('view engine', 'html')
 
 app.use(function(req, res, next) {
@@ -22,8 +23,8 @@ app.use(function(req, res, next) {
   next()
 })
 
-app.use('/dist', express.static('./dist'))
-app.use('/static', express.static('./static'))
+app.use('/dist', express.static(path.join(cwd, 'dist/')))
+app.use('/static', express.static(path.join(cwd, 'static/')))
 
 
 app.get('/preview', async (req, res, next) => {
@@ -37,13 +38,13 @@ app.get('/preview', async (req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, './dist/app.js'))
+  res.sendFile(path.join(cwd, 'dist/app.js'))
 })
 
 app.listen(PORT, HOST, () => {
   const entries = [
-    path.join(process.cwd(), 'dist/app.js'),
-    path.join(process.cwd(), 'dist/pdr.js')
+    path.join(cwd, 'dist/app.js'),
+    path.join(cwd, 'dist/pdr.js')
   ]
 
   entries.forEach(p => {
