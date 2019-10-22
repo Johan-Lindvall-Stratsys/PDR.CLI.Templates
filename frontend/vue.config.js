@@ -31,6 +31,8 @@ module.exports = {
       .loader('url-loader')
   },
   configureWebpack: config => {
+    config.devtool = 'source-map'
+
     // We can safely ignore this since we lazy-load the application already
     config.performance = {
       hints: false
