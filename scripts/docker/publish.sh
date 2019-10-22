@@ -7,5 +7,5 @@ fi
 MSYS_NO_PATHCONV=1 docker run --rm -i \
   -v $(pwd)/:/app \
   -w /app \
-  node:10.16.0-jessie \
+  node:10.16-jessie \
   /bin/bash -c "yarn run azure:publish"
