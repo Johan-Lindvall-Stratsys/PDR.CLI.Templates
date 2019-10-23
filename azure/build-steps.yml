@@ -15,7 +15,11 @@ steps:
     env:
       MYGET_API_KEY: ${{ parameters.mygetApiKey }}
       RELEASE: ${{ parameters.release }}
+  - script: bash ./scripts/docker/audit.sh
+    displayName: "Audit packages"
   - script: bash ./scripts/docker/build.sh
+    condition: succeeded()
     displayName: "Build Frontend Artifact"
   - script: bash ./scripts/docker/regression.sh
+    condition: succeeded()
     displayName: "Running Regression Tests"
