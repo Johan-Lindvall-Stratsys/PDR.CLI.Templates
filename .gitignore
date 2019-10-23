@@ -3,6 +3,7 @@ node_modules
 lib/
 dist/
 reports/
+audits/
 artifact.tgz
 
 # local env files
