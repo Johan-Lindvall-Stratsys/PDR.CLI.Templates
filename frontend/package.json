@@ -14,7 +14,7 @@
     "test": "yarn test:unit && yarn test:component"
   },
   "dependencies": {
-    "@stratsys/pdr": "^4.33.0",
+    "@stratsys/pdr": "^4.44.0",
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
