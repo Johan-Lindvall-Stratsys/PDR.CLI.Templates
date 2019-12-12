@@ -11,7 +11,7 @@ pdrWindow.PDR.init({
     silentRedirectPath: '/callbackSilent.html',
     popupRedirectPath: '/callbackPopup.html',
 
-    clientId: 'StratsysWebDev',
+    clientId: 'stratsys-frontend-debug',
     responseType: 'id_token token',
     scope: ['openid', 'profile'].join(' ')
   },
